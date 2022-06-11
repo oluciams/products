@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+.navbar {
+  box-shadow: 0 4px 10px gray; 
+  padding: 1rem 0;
+}
+
+.navbar__menu {
+  align-items: center;  
+  display: flex;  
+  justify-content: space-between;
+  padding: 0.5rem;  
+}
+
+.navbar__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem; 
+}
+
+.navbar__link {  
+  color: black;
+  margin: 1rem;    
+  text-decoration: none;
+}
+
+.navbar__button {
+  border: solid 1px black;
+  font-weight: bold;
+  padding: 1rem 1.5rem;  
+}
+
+.navbar__button--dark {
+  background-color: black;
+  color: white;
+}
+
+
+
