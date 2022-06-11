@@ -8,17 +8,20 @@ export const Signup = ()=>{
       <h2 className='register__title'>Sign Up</h2>
       <form className='resgister__form' method='POS' action=''>
         <div>        
-          <input className='register__input' type='tex' id='name' name='name' placeholder='Full Name'/>
+          <input className='register__input' type='tex' name='name' placeholder='Full Name'/>
         </div>
         <div>        
-          <input className='register__input' type='email'  id='email' name='email' placeholder='Email'/>    
+          <input className='register__input' type='email' name='email' placeholder='Email'/>    
         </div>
         <div>        
           <input className='register__input' type="password" name='password' placeholder='Password'/>
-        </div>        
-          <button className='register__button' type="submit">Sign Up</button>
-             
+        </div>
+        <div>        
+          <input className='register__input' type="password" name='confirmationPassword' placeholder='Confirmation Password'/>
+        </div>         
+        <button className='register__button' type="submit">Sign Up</button>             
       </form> 
+      <p className='register__paragraph'>Already have an account? <a href='#'>Log In</a></p>
     </section> 
     
   )
