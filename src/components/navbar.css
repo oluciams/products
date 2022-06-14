@@ -4,65 +4,89 @@
   padding: 0;
 }
 
+.header { 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999; 
+  width: 100%;
+  height: 4rem;  
+}
+
 .navbar {
-  box-shadow: 0 4px 10px gray; 
-  padding: 1rem 0;
-  height: 3.5rem;
-  border: solid 1px red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 5px 20px gray;  
+  height: 4rem; 
+  padding: 1rem;
+}
+
+.navbar__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none; 
+}
+
+.navbar__buttonmenu {  
+  border: 0; 
+  background-color:  rgb(204, 141, 204);
+  cursor: pointer;
+  outline: thin solid black;
+}
+
+.navbar__menu svg {
+  fill: black;
+}
+
+.navbar__menu {  
+  position: fixed;
+  left: 0; 
+  bottom: 4rem;  
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* pointer-events: none; */
+  /* opacity: 0;
+  transition: opacitty.5s ease; */
+}
+
+.navbar__menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .none {
   display: none;
 }
 
-.navbar__menu--active {
-  border: solid 1px red;
-}
+.navbar__link {
+  color: black;            
+  padding: 1rem;
+  font-size: 1.2rem; 
+  text-align: center;
+  text-decoration: none;    
+} 
 
-.navbar__title {
-  margin-right: 0;
-  border: solid 1px blue;
-}
-
-.navbar__menu a { 
-  display: block;
-  color: black;  
-  margin: 0.5rem;          
-  text-decoration: none;  
-}
-
-.navbar__menu {
-  border: solid 1px green;
-  position: fixed;
-  left: 0; 
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  pointer-events: none;
-}
 
 @media screen and (min-width: 1024px) {
-  .navbar {
-    box-shadow: 0 4px 10px gray; 
-    padding: 1rem 0;
+  .header {
+    position: relative;   
+    top: 0;  
   }
 
-  .navbar__menu--active {
+  .navbar__buttonmenu {
     display: none;
   }
 
-  .navbar__menu {
-    align-items: center;  
-    display: flex;  
-    justify-content: space-between;
-    padding: 0.5rem;  
+  .navbar__menu {  
+    position: relative;    
+    top: 0;  
+    width: 100%;
+    display: flex;
+    flex-direction: row;  
   }
-
-  .navbar__title {    
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 2rem; 
-  }
+ 
 
   .navbar__link {  
     color: black;
@@ -73,12 +97,14 @@
   .navbar__button {
     border: solid 1px black;
     font-weight: bold;
-    padding: 1rem 1.5rem;  
+    padding: 1rem;
+    margin-left: auto;  
   }
 
   .navbar__button--dark {
     background-color: black;
     color: white;
-  }  
+    margin-left: 2rem;
+  }   
 }
 

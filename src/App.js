@@ -6,13 +6,11 @@ import { Signup } from './components/Signup';
 
 function App() {
 	return (
-		<div>
-			<header>			
-				<Navbar/>
-			</header>
-				<Signup/>
-				{/* <Login/> */}
-		</div>
+		<>			
+			<Navbar/>		
+			<Signup/>
+			{/* <Login/> */}
+		</>
 	);
 }
 
