@@ -46,9 +46,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* pointer-events: none; */
-  /* opacity: 0;
-  transition: opacitty.5s ease; */
+  pointer-events: none; 
+  opacity: 0;
+  transition: opacitty.5s ease;
 }
 
 .navbar__menu.is-active {
@@ -84,9 +84,10 @@
     top: 0;  
     width: 100%;
     display: flex;
-    flex-direction: row;  
-  }
- 
+    flex-direction: row;
+    pointer-events: none; 
+    opacity: 1;
+  } 
 
   .navbar__link {  
     color: black;
