@@ -86,7 +86,7 @@ export const Signup = ()=>{
           Sign Up
         </button>             
       </form> 
-      <p className='register__paragraph'>Already have an account? <a href='#'>Log In</a></p>
+      <p className='register__paragraph'>Already have an account? <a href='/login'>Log In</a></p>
     </section> 
     
   )

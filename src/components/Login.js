@@ -55,7 +55,7 @@ export const Login = ()=>{
           Log In
         </button>             
       </form> 
-      <p className='login__paragraph'>Don&#39;t have an account? <a href='#'>Sign up</a></p>
+      <p className='login__paragraph'>Don&#39;t have an account? <a href='/'>Sign up</a></p>
     </section> 
   )
 }
