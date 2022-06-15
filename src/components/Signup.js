@@ -9,8 +9,7 @@ export const Signup = ()=>{
   const [confirmationPassword, setConfirmationPassword] = useState('');
 
   const handleName = (e) =>{
-    setName(e.target.value)
-    console.log(name)
+    setName(e.target.value) 
   }
 
   const handleEmail = (e)=>{
