@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './signup.css'
-
+import { signupApi } from '../utils/api';
+import './signup.css';
 
 export const Signup = ()=>{
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmationPassword, setConfirmationPassword] = useState('');
-
+ 
   const handleName = (e) =>{
     setName(e.target.value) 
   }
@@ -24,26 +24,30 @@ export const Signup = ()=>{
     setConfirmationPassword(e.target.value)
   }
 
-  const handleOnSubmit = (e)=>{
-    e.preventDefault(); 
-    if(name && email && password && confirmationPassword) {
-      saveFormData(name, email, password, confirmationPassword)
-      setName('');
-      setEmail('');
-      setPassword('');
-      setConfirmationPassword('');      
-    } 
+  const resetForm = ()=>{
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfirmationPassword('');
   }
 
-  const saveFormData = ()=>{
-    const formSingup = {name, email, password, confirmationPassword}
-    console.log(formSingup)
+  const handleOnSubmit = async(e)=>{
+    e.preventDefault(); 
+    if(name && email && password && confirmationPassword) {
+      const data = {name, email, password, confirmationPassword}
+      try {
+        await signupApi.post('/signup', data)        
+      } catch (error) {
+        console.error('error')        
+      }        
+      resetForm()
+    }   
   }
 
   return(   
     <section className='register'> 
       <h2 className='register__title'>Sign Up</h2>
-      <form onSubmit={handleOnSubmit} className='resgister__form' method='POS' action=''>
+      <form onSubmit={handleOnSubmit} className='resgister__form'>
         <div>        
           <input 
             className='register__input'
