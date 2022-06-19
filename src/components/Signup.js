@@ -37,9 +37,9 @@ export const Signup = ()=>{
   const handleOnSubmit = async(e)=>{
     e.preventDefault(); 
     if(name && email && password && confirmationPassword) {
-      const data = {name, email, password, confirmationPassword}
+      const signupForm = {name, email, password, confirmationPassword}
       try {
-        await signupApi.post('/signup', data)              
+        await signupApi.post('/signup', signupForm)              
         resetForm();
         navigate('/login')     
       } catch (error) {

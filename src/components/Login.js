@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loginApi } from '../utils/api';
 import './login.css'
 
 export const Login = ()=>{
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
+
+  const navigate = useNavigate();
 
   const handleEmail = (e)=>{
     setEmail(e.target.value)
@@ -13,18 +18,25 @@ export const Login = ()=>{
     setPassword(e.target.value)
   }
 
-  const handleSubmit = (e)=>{
-    e.preventDefault();
-    if(email && password) {
-      saveFormData(email, password);
-      setEmail('');
-      setPassword('');
-    }
+  const resetForm = ()=>{    
+    setEmail('');
+    setPassword('');   
   }
 
-  const saveFormData = (email, password)=>{
-    const formLogin = {email, password}
-    console.log(formLogin)
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    if(email && password) {
+      const loginForm= {email, password}
+      try {
+        const {data} = await loginApi.post('/login', loginForm)
+        setToken(data.token)        
+        console.log(token)  
+        resetForm();
+        navigate('/home')
+      } catch (error) {
+        console.error('error') 
+      }  
+    }
   }
 
   return (
