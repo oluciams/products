@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../utils/api';
+import PropTypes from 'prop-types';
 import './login.css'
 
-export const Login = ()=>{
+export const Login = ({setToken})=>{
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const [password, setPassword] = useState('');  
 
   const navigate = useNavigate();
 
@@ -30,7 +30,6 @@ export const Login = ()=>{
       try {
         const {data} = await loginApi.post('/login', loginForm)
         setToken(data.token)        
-        console.log(token)  
         resetForm();
         navigate('/home')
       } catch (error) {
@@ -70,4 +69,8 @@ export const Login = ()=>{
       <p className='login__paragraph'>Don&#39;t have an account? <a href='/'>Sign up</a></p>
     </section> 
   )
+}
+
+Login.propTypes ={
+  setToken: PropTypes.func.isRequired,  
 }
