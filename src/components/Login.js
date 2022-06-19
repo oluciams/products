@@ -35,7 +35,7 @@ export const Login = ()=>{
           <input
             className='login__input'
             type='email'
-            value={email} requeried unique
+            value={email}
             onChange={handleEmail}
             name='email'
             placeholder='Email'/>    
@@ -46,7 +46,7 @@ export const Login = ()=>{
             type='password'
             value={password}
             onChange={handlePassword}          
-            name='password'required 
+            name='password'
             placeholder='Password'/>
         </div>               
         <button 

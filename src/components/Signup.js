@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signupApi } from '../utils/api';
 import './signup.css';
 
@@ -7,6 +8,8 @@ export const Signup = ()=>{
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmationPassword, setConfirmationPassword] = useState('');
+
+  const navigate = useNavigate();
  
   const handleName = (e) =>{
     setName(e.target.value) 
@@ -36,15 +39,17 @@ export const Signup = ()=>{
     if(name && email && password && confirmationPassword) {
       const data = {name, email, password, confirmationPassword}
       try {
-        await signupApi.post('/signup', data)        
+        await signupApi.post('/signup', data)              
+        resetForm();
+        navigate('/login')     
       } catch (error) {
         console.error('error')        
-      }        
-      resetForm()
-    }   
+      } 
+    }
   }
 
-  return(   
+  return( 
+     
     <section className='register'> 
       <h2 className='register__title'>Sign Up</h2>
       <form onSubmit={handleOnSubmit} className='resgister__form'>
@@ -90,8 +95,7 @@ export const Signup = ()=>{
           Sign Up
         </button>             
       </form> 
-      <p className='register__paragraph'>Already have an account? <a href='/login'>Log In</a></p>
+      <p className='register__paragraph'>Already have an account? <a href='/login'>Log In</a></p>    
     </section> 
-    
   )
 } 
