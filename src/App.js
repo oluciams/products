@@ -13,13 +13,14 @@ function App() {
 
 	return (
 		<>
-		<Navbar/>		
-		<Routes>	
-			<Route path='/' element={<Signup/>}/>
+		<Navbar token={token} setToken={setToken}/>		
+		<Routes>
+			<Route index element={<Login/>}/>	
+			<Route path='signup' element={<Signup/>}/>
 			<Route path='login' element={<Login setToken={setToken} />}/>	
 			<Route element={<PrivateRoute token={token} redirectPath ='/login'/>}>
-				<Route path='/home' element={<Home/>}/>
-				<Route path='/about' element={<About/>}/>	
+				<Route path='home' element={<Home/>}/>
+				<Route path='about' element={<About/>}/>	
 			</Route>
 		</Routes>
 		</>

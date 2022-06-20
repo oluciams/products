@@ -66,11 +66,11 @@ export const Login = ({setToken})=>{
           Log In
         </button>             
       </form> 
-      <p className='login__paragraph'>Don&#39;t have an account? <a href='/'>Sign up</a></p>
+      <p className='login__paragraph'>Don&#39;t have an account? <a href='/signup'>Sign up</a></p>
     </section> 
   )
 }
 
 Login.propTypes ={
-  setToken: PropTypes.func.isRequired,  
+  setToken: PropTypes.func,  
 }
