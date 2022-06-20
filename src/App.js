@@ -9,7 +9,8 @@ import { PrivateRoute } from './components/PrivateRoute';
 import { Signup } from './components/Signup';
 
 function App() {
-	const [token, setToken] = useState('');
+	const tokenStorage = localStorage.getItem('token') 
+	const [token, setToken] = useState(tokenStorage);
 
 	return (
 		<>
@@ -17,7 +18,7 @@ function App() {
 		<Routes>
 			<Route index element={<Login/>}/>	
 			<Route path='signup' element={<Signup/>}/>
-			<Route path='login' element={<Login setToken={setToken} />}/>	
+			<Route path='login' element={<Login setToken={setToken}/>}/>	
 			<Route element={<PrivateRoute token={token} redirectPath ='/login'/>}>
 				<Route path='home' element={<Home/>}/>
 				<Route path='about' element={<About/>}/>	

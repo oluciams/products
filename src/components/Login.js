@@ -29,7 +29,8 @@ export const Login = ({setToken})=>{
       const loginForm= {email, password}
       try {
         const {data} = await loginApi.post('/login', loginForm)
-        setToken(data.token)        
+        setToken(data.token)
+        localStorage.setItem('token', data.token)        
         resetForm();
         navigate('/home')
       } catch (error) {
@@ -72,5 +73,5 @@ export const Login = ({setToken})=>{
 }
 
 Login.propTypes ={
-  setToken: PropTypes.func,  
+  setToken: PropTypes.func  
 }

@@ -12,6 +12,6 @@ export const PrivateRoute = ({token, redirectPath})=>{
 }
 
 PrivateRoute.propTypes ={
-  token: PropTypes.string.isRequired,
+  token: PropTypes.string,
   redirectPath: PropTypes.string
 }

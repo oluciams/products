@@ -10,6 +10,11 @@ export const Navbar =({token, setToken})=>{
     setActive(!active)
   }
 
+  const logout = ()=>{
+    localStorage.removeItem('token')
+    setToken('')
+  }
+
   return(    
     <header className='header'>  
       <section className='navbar'>
@@ -25,7 +30,7 @@ export const Navbar =({token, setToken})=>{
           <>    
             <Link className='navbar__link' to='/home'>Home</Link>
             <Link className='navbar__link' to="/about">About</Link>
-            <Link className='navbar__link navbar__button' to='/' onClick={()=>setToken('')}>Logout</Link>
+            <Link className='navbar__link navbar__button' to='/' onClick={()=> logout()}>Logout</Link>
           </> 
           :
           <>            
@@ -40,6 +45,6 @@ export const Navbar =({token, setToken})=>{
 }
 
 Navbar.propTypes ={
-  token: PropTypes.string.isRequired,
+  token: PropTypes.string,
   setToken: PropTypes.func.isRequired,
 }
