@@ -15,8 +15,7 @@
 }
 
 .login__input {
-  border: solid 3px black;
-  font-weight: bold;
+  border: solid 3px black;  
   font-size: 1rem;
   margin: 0.5rem;
   padding: 1.5rem;

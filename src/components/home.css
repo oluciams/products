@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+.home {
+  border: solid 1px blue; 
+  margin: 2rem 5rem;
+}
+
+.home__title {  
+  text-align: center;
+  margin: 2rem;  
+}
+
+.home__cards {
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: center;
+}
