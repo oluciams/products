@@ -1,15 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './productCard.css'
 
-export const ProductCard = ()=>{
+export const ProductCard = ({id, title, image})=>{
   return(  
-    <div className='card'>
-      <img className='card__image'></img>
-      <h5 className='card__title'>Descripcion</h5>
+    <div key={id} className='card'>
+      <img src={image} className='card__image' alt='product'/>
+      <h5 className='card__title'>{title}</h5>
       <div className='card__detail'>
         <p className='card__time'> 00:00:00 </p>      
-        <a className='card__button'>Go To Detail</a>
-      </div>      
+        <Link to='/detail' className='card__button'>Go To Detail</Link>
+      </div>        
     </div>    
   )
+}
+
+ProductCard.propTypes ={  
+  id: PropTypes.string,
+  title: PropTypes.string,
+  image: PropTypes.string  
 }

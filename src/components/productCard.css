@@ -24,18 +24,21 @@
   margin: 1rem;
 }
 
-.card__detail{
+.card__detail {
   margin: 1rem;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .card__button {
-  background-color: cadetblue;
-  border: solid 1px black;
+  background-color: blue;
+  border: solid 1px blue;
   border-radius: 8px;
   margin-bottom: 1rem;
-  padding: 0.5rem;   
+  padding: 0.5rem;
+  color: white;
+  text-decoration: none;   
 }
 
 .card__time {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Route, Routes } from 'react-router-dom';
 import './App.css';
 import { About } from './components/About';
+import { Detail } from './components/Detail';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { Navbar } from './components/Navbar';
@@ -21,7 +22,8 @@ function App() {
 			<Route path='login' element={<Login setToken={setToken}/>}/>	
 			<Route element={<PrivateRoute token={token} redirectPath ='/login'/>}>
 				<Route path='home' element={<Home/>}/>
-				<Route path='about' element={<About/>}/>	
+				<Route path='about' element={<About/>}/>
+				<Route path='detail' element={<Detail/>}/>	
 			</Route>
 		</Routes>
 		</>

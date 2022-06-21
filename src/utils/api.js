@@ -10,3 +10,7 @@ export const loginApi = axios.create({
   timeout: 5000,
 });
 
+export const productsApi = axios.create({
+  baseURL: 'https://fakestoreapi.com',  
+  timeout: 5000,
+});
