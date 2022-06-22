@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from './ProductCard';
 import './home.css'
-import { productsApi } from '../utils/api';
-// const axios = require('axios').default;
+// import { productsApi } from '../utils/api';
+import axios from 'axios';
+
 
 
 
@@ -10,25 +11,25 @@ export const Home = ()=>{
 
   const [products, setProducts] = useState(false);
 
-  const fetchData = async()=>{
-    try {
-      const {data} = await productsApi.get('/products');
-        setProducts(data);
-        console.log(data);         
-    } catch (error) {
-      console.error(error);
-    }
-  } 
-  
   // async function fetchData() {
   //   try {
-  //     const response = await axios.get('https://fakestoreapi.com/products');
-  //     setProducts(response.data);
-  //     console.log(response.data);         
+  //     const response = await productsApi.get('/products');
+  //       setProducts(response.data);
+  //       console.log(response.data);         
   //   } catch (error) {
   //     console.error(error);
   //   }
   // } 
+  
+  async function fetchData() {
+    try {
+      const response = await axios.get('https://fakestoreapi.com/products');
+      setProducts(response.data);
+      console.log(response.data);         
+    } catch (error) {
+      console.error(error);
+    }
+  } 
 
   useEffect(() => {
     fetchData();    
