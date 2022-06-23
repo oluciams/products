@@ -1,18 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { formatTime } from '../utils/formatTime';
 import './productCard.css'
 
 export const ProductCard = ({id, title, image})=>{
+
+  const [timer, setTimer] = useState(60);
+  const [timerStart, setTimerStart] = useState(false);
+  const [activeLink, setActiveLink] = useState(true);
+
+  const stop = ()=>{  
+    setTimerStart(false)  
+  }
+
+  const start = ()=>{
+    setTimerStart(true)  
+  }
+
+  useEffect(() => {
+    if(timer === 0){
+      stop()
+      setActiveLink(false)
+    } else{
+      start()
+    }
+  }, [timer]);
+
+  useEffect(() => {
+    let interval = null;
+
+    if(timerStart){  
+      interval =setInterval(() => {
+      setTimer(prevTimer => prevTimer - 1)  
+      }, 1000);
+    }else {
+      clearInterval(interval)
+    }
+    return  () => clearInterval(interval)
+      
+  }, [timerStart]);
 
   return(  
     <div key={id} className='card'>
       <img src={image} className='card__image' alt='product'/>
       <h5 className='card__title'>{title}</h5>
-      <div className='card__detail'>
-        <p className='card__time'> 00:00:00 </p>      
-        <Link to='/detail' state={{id}} className='card__button'>Go To Detail</Link>
-      </div>        
+      <div className='card__detail'>        
+      <p className='card__time'>{formatTime(timer)}</p>  
+      <Link to='/detail' state={{id}} className={activeLink ? 'card__button' : 'card__button is-active' }>Go To Detail</Link>         
+      </div>
     </div>    
   )
 }
@@ -20,5 +56,5 @@ export const ProductCard = ({id, title, image})=>{
 ProductCard.propTypes ={  
   id: PropTypes.number,
   title: PropTypes.string,
-  image: PropTypes.string  
+  image: PropTypes.string, 
 }

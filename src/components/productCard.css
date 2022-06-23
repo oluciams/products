@@ -38,7 +38,12 @@
   margin-bottom: 1rem;
   padding: 0.5rem;
   color: white;
+  pointer-events: auto;
   text-decoration: none;   
+}
+
+.card__button.is-active {  
+  pointer-events: none;
 }
 
 .card__time {
