@@ -30,7 +30,7 @@ export const Navbar =({token, setToken})=>{
           <>    
             <Link className='navbar__link' to='/home'>Home</Link>
             <Link className='navbar__link' to="/about">About</Link>
-            <Link className='navbar__link navbar__button' to='/' onClick={()=> logout()}>Logout</Link>
+            <Link className='navbar__link navbar__button' to='/login' onClick={()=> logout()}>Logout</Link>
           </> 
           :
           <>            

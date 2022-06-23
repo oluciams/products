@@ -28,11 +28,11 @@ export const Login = ({setToken})=>{
     if(email && password) {
       const loginForm= {email, password}
       try {
-        const {data} = await loginApi.post('/login', loginForm)
-        setToken(data.token)
-        localStorage.setItem('token', data.token)        
+        const {data} = await loginApi.post('/login', loginForm);
+        setToken(data.token);  
+        localStorage.setItem('token', data.token);       
         resetForm();
-        navigate('/home')
+        navigate('/home');
       } catch (error) {
         console.error('error') 
       }  
@@ -42,7 +42,7 @@ export const Login = ({setToken})=>{
   return (
     <section className='login'> 
       <h2 className='login__title'>Log In</h2>
-      <form onSubmit={handleSubmit} className='login__form' method='POS' action=''>     
+      <form onSubmit={handleSubmit} className='login__form'>     
         <div>        
           <input
             className='login__input'

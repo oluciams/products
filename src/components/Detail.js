@@ -22,21 +22,21 @@ export const Detail = ()=>{
     fetchDetail();    
   }, []);
 
+  if(!detail) return <h3>Loading ...</h3>
+
   return(
     <section className='detail'>
       <h2 className='detail__title'>Product Detail</h2> 
       <div className='detail__container'>      
         <div className='detail__header'>
           <img src={detail.image} className='detail__image' alt='...'/>
-          <p className='detail__rate'><small className=''>3 estrellas</small></p>
+          <p className='detail__rate'><small className=''>{detail.rating.rate} <span>&#9733; &#9733; &#9733; &#9733;</span> &#40;{detail.rating.count}&#41; </small></p>
         </div>
         <div className='detail__body'>
-          <h3 className='detail__name'>Product: {detail.title}</h3>
-          <h4 className='detail__price'>Price: {detail.price}</h4>
-          <p className='detail__description'>Description: {detail.description}</p>
+          <h3 className='detail__name'>{detail.title}</h3>
+          <p className='detail__description'>{detail.description}</p>
           <p className='detail__category'>Category: {detail.category}.</p>
-          <p className='detail__count'>Cantidad:{detail.rating.rate} &#40;{detail.rating.count}&#41;</p> 
-          {console.log(detail.rating.rate)}          
+          <h4 className='detail__price'>Price: &#36;{detail.price}</h4>                          
           </div>      
       </div>
       <div className='detailLink'>
