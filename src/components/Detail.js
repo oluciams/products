@@ -1,25 +1,28 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './detail.css'
+
 
 export const Detail = ()=>{
 
   const [detail, setDetail] = useState(false);
 
+  const location = useLocation();
+  const data = location.state?.id;  
+
   async function fetchDetail() {
     try {
-      const response = await axios.get('https://fakestoreapi.com/products/1');
-      setDetail(response.data);
-      console.log(response.data);
-      console.log(detail)         
+      const response = await axios.get(`https://fakestoreapi.com/products/${data}`);
+      setDetail(response.data);               
     } catch (error) {
       console.error(error);
     }
   } 
 
-  useEffect(() => {
-    fetchDetail();    
+  useEffect(() => {  
+      fetchDetail();
+   
   }, []);
 
   if(!detail) return <h3>Loading ...</h3>
@@ -30,7 +33,7 @@ export const Detail = ()=>{
       <div className='detail__container'>      
         <div className='detail__header'>
           <img src={detail.image} className='detail__image' alt='...'/>
-          <p className='detail__rate'><small className=''>{detail.rating.rate} <span>&#9733; &#9733; &#9733; &#9733;</span> &#40;{detail.rating.count}&#41; </small></p>
+          <p className='detail__rate'><small>{detail.rating.rate} <span>&#9733; &#9733; &#9733; &#9733;</span> &#40;{detail.rating.count}&#41; </small></p>
         </div>
         <div className='detail__body'>
           <h3 className='detail__name'>{detail.title}</h3>

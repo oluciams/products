@@ -47,7 +47,8 @@ export const Home = ()=>{
             <ProductCard
             key={id}
             title={title}
-            image={image}/>
+            image={image}
+            id={id}/>
             )
           }    
         </div>   
