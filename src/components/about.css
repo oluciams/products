@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+.about {
+  margin: 3rem;
+  padding: 2rem;
+  display: flex;  
+  justify-content: space-between;  
+}
+
+.about__image {
+  padding: 2rem;
+}
+
+.about__name {
+  text-align: center ;
+  margin: 2rem;
+}
+
+.about__description {
+  font-size: 1.5rem;
+}
+
