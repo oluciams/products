@@ -6,7 +6,9 @@ import './productCard.css'
 
 export const ProductCard = ({id, title, image})=>{
 
-  const [timer, setTimer] = useState(60);
+  const randomTime = Math.floor(Math.random() * (300 - 60) + 60); 
+
+  const [timer, setTimer] = useState(randomTime);
   const [timerStart, setTimerStart] = useState(false);
   const [activeLink, setActiveLink] = useState(true);
 
