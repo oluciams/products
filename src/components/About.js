@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './about.css'
 
 const profilePicture = require('../assets/fotoperfil.jpeg') 
@@ -7,23 +6,22 @@ const profilePicture = require('../assets/fotoperfil.jpeg')
 export const About = ()=>{
   return (
     <section className='about'>
-      <div className='about__image'>
-        <img src={profilePicture}/>
+      <div className='about__header'>
+        <img src={profilePicture} className='about__image'/>
       </div>
-      <div>
-        <h2 className='about__name'>OLGA LUCIA MARIN SANCHEZ</h2>
-        <p className='about__description'>Profesional en Contaduría Pública enfocada actualmente en el Desarrollo de Software.
-          Experiencia de 17 años en el sector financiero y con gran interés en nuevas oportunidades
-          que me permitan crecer personal y profesionalmente en la industria de la tecnología.</p>
-        <p className='about__list'>En este programa he aprendido: 
-        <ul >
-          <li>Desarrollo de sofware</li>
-          <li>Manejo de tecnologias</li>
-          <li>Git - Github</li>
-        </ul>
-        </p>
-        <p className='about__email'>Correo electronico: <spam>oluciams84@gmail.com</spam></p>
-        <Link to='' className='about__link'>github</Link>
+      <div className='about__body'>
+        <h3 className='about__name'>OLGA LUCIA MARIN SANCHEZ</h3>
+        <p className='about__description'>Profesional en Contadur&iacute;a P&uacute;blica enfocada actualmente en el Desarrollo de Software.
+          Experiencia de 17 años en el sector financiero y con gran inter&eacute;s en nuevas oportunidades
+          que me permitan crecer personal y profesionalmente en la industria de la tecnolog&iacute;a.</p>
+        <p>En este programa he aprendido: </p>
+        <ul className='about__list'>
+          <li>Desarrollo de sofware, Stack MERN.</li>
+          <li>Metodologia SCRUM</li>
+          <li>Git - Github</li> 
+        </ul>     
+        <p className='about__email'>Correo electronico: oluciams84@gmail.com</p>
+        <a target='_blank' rel='noreferrer' href='https://github.com/oluciams' className='about__link'>Mi Github</a>      
       </div>
     </section>  
   )

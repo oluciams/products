@@ -40,7 +40,7 @@ export const Detail = ()=>{
           <p className='detail__description'>{detail.description}</p>
           <p className='detail__category'>Category: {detail.category}.</p>
           <h4 className='detail__price'>Price: &#36;{detail.price}</h4>                          
-          </div>      
+        </div>      
       </div>
       <div className='detailLink'>
       <Link className='detail__link' to='/home'>volver</Link>
