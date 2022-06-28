@@ -1,7 +1,7 @@
 import React from 'react';
-import './about.css'
+import '../assets/styles/about.css'
 
-const profilePicture = require('../assets/fotoperfil.jpeg') 
+const profilePicture = require('../assets/images/fotoperfil.jpeg') 
 
 export const About = ()=>{
   return (

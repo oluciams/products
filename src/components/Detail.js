@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './detail.css'
+import '../assets/styles/detail.css'
 
 
 export const Detail = ()=>{

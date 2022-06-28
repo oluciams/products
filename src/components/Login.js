@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../utils/api';
 import PropTypes from 'prop-types';
-import './login.css'
+import '../assets/styles/login.css'
 
 export const Login = ({setToken})=>{
   const [email, setEmail] = useState('');

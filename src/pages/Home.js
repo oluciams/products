@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ProductCard } from './ProductCard';
-import './home.css'
+import { ProductCard } from '../components/ProductCard';
+import '../assets/styles/home.css'
 // import { productsApi } from '../utils/api';
 import axios from 'axios';
 

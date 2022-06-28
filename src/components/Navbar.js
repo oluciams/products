@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './navbar.css';
+import '../assets/styles/navbar.css';
 
 export const Navbar =({token, setToken})=>{
   const [active, setActive] = useState(false);
