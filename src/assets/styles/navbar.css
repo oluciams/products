@@ -64,9 +64,10 @@
   color: black;            
   padding: 1rem;
   font-size: 1.2rem; 
-  text-align: center;
+  text-align: end;
   font-weight: bold;
-  text-decoration: none;    
+  text-decoration: none;
+  margin: 0.5rem;    
 } 
 
 
