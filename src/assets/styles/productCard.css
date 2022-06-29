@@ -44,6 +44,8 @@
 
 .card__button.is-active {  
   pointer-events: none;
+  background-color: rgb(199, 196, 196);
+  border: solid 1px grey;
 }
 
 .card__time {

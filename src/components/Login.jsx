@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../utils/api';
 import PropTypes from 'prop-types';
-import '../assets/styles/login.css'
+import '../assets/styles/login.css';
+import { AuthContext } from '../context/AuthContextProvider';
 
-export const Login = ({setToken})=>{
+export const Login = ()=>{
+
+  const {setToken} = useContext(AuthContext)
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');  
 
@@ -34,9 +38,9 @@ export const Login = ({setToken})=>{
         resetForm();
         navigate('/home');
       } catch (error) {
-        console.error('error') 
-      }  
-    }
+          console.error('error') 
+        }  
+      }
   }
 
   return (

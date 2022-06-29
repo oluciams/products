@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import '../assets/styles/navbar.css';
+import { AuthContext } from '../context/AuthContextProvider';
 
-export const Navbar =({token, setToken})=>{
-  const [active, setActive] = useState(false);
+export const Navbar =()=>{
 
-  const handleMenu = ()=>{
-    setActive(!active)
-  }
-
-  const logout = ()=>{
-    localStorage.removeItem('token')
-    setToken('')
-  }
+  const {handleMenu, active, token, logout} = useContext(AuthContext);
 
   return(    
     <header className='header'>  
@@ -42,9 +34,4 @@ export const Navbar =({token, setToken})=>{
       </section>  
     </header>
   )
-}
-
-Navbar.propTypes ={
-  token: PropTypes.string,
-  setToken: PropTypes.func.isRequired,
 }

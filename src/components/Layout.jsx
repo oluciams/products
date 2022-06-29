@@ -1,26 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { Navbar } from './Navbar';
+import { AuthContext } from '../context/AuthContextProvider';
 
-export const Layout = ({ token, setToken, redirectPath }) => {
+export const Layout = () => {
+
+  const {token, redirectPath} = useContext(AuthContext)
   
   if (!token) {
     return <Navigate to={redirectPath} />
   }
   return (
-    <>
-      <Navbar token={token} setToken={setToken} />
+    <>    
+      <Navbar />
       <Outlet />
     </>
   )
 }
-
-Layout.propTypes = {
-  token: PropTypes.string,
-  setToken: PropTypes.func,
-  redirectPath: PropTypes.string
-}
-
 
 
