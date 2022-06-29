@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navbar } from './components/Navbar';
 import { Navigate, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Navbar } from './Navbar';
 
 export const Layout = ({ token, setToken, redirectPath }) => {
   

@@ -4,7 +4,6 @@ import { About } from './pages/About';
 import { Detail } from './components/Detail';
 import { Home } from './pages/Home';
 import { Login } from './components/Login';
-
 import { Layout } from './components/Layout';
 import { Signup } from './components/Signup';
 
