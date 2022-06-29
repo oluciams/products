@@ -1,25 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../components/ProductCard';
-import '../assets/styles/home.css'
-// import { productsApi } from '../utils/api';
+import '../assets/styles/home.css';
 import axios from 'axios';
-
-
-
 
 export const Home = ()=>{
 
   const [products, setProducts] = useState(false);
-
-  // async function fetchData() {
-  //   try {
-  //     const response = await productsApi.get('/products');
-  //       setProducts(response.data);
-  //       console.log(response.data);         
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // } 
   
   async function fetchData() {
     try {
