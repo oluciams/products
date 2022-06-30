@@ -1,10 +1,11 @@
 @import 'variables';
+@import 'mixins';
 
-// * {
-//   box-sizing: border-box;
-//   margin:0;
-//   padding: 0;
-// }
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
 
 .login {  
   text-align: center;  
@@ -35,7 +36,7 @@
   width: 60%;
 }
 
-@media screen and (min-width: 1024px) {
+@include media-up(desktop) {
   .login__input {
     width: 25%;
   }

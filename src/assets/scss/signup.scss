@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .register {
   text-align: center;  
@@ -29,7 +30,7 @@
   width: 60%;
 }
 
-@media screen and (min-width: 1024px) {
+@include media-up(desktop) {
   .register__input {
     width: 25%;
   }
