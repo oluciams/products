@@ -5,13 +5,12 @@ import axios from 'axios';
 
 export const Home = ()=>{
 
-  const [products, setProducts] = useState(false);
+  const [products, setProducts] = useState(false);  
   
   async function fetchData() {
     try {
       const response = await axios.get('https://fakestoreapi.com/products');
-      setProducts(response.data);
-      console.log(response.data);         
+      setProducts(response.data);        
     } catch (error) {
       console.error(error);
     }
@@ -19,7 +18,7 @@ export const Home = ()=>{
 
   useEffect(() => {
     fetchData();    
-  }, []);
+  }, []);  
 
   if(!products) return <h4>Loading . . .</h4>
 
