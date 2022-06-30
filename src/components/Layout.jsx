@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { AuthContext } from '../context/AuthContextProvider';
+import PropTypes from 'prop-types';
 
-export const Layout = () => {
+export const Layout = ({redirectPath}) => {
 
-  const {token, redirectPath} = useContext(AuthContext)
+  const {token } = useContext(AuthContext)
   
   if (!token) {
     return <Navigate to={redirectPath} />
@@ -16,6 +17,10 @@ export const Layout = () => {
       <Outlet />
     </>
   )
+}
+
+Layout.propTypes = {
+  redirectPath: PropTypes.string.isRequired
 }
 
 
