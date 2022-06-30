@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../utils/api';
 import PropTypes from 'prop-types';
-import '../assets/styles/login.css';
+import '../assets/scss/login.scss';
 import { AuthContext } from '../context/AuthContextProvider';
 
 export const Login = ()=>{

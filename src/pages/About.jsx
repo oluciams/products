@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/about.css'
+import '../assets/scss/about.scss'
 
 const profilePicture = require('../assets/images/fotoperfil.jpeg') 
 

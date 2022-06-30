@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { formatTime } from '../utils/formatTime';
-import '../assets/styles/productCard.css'
+import '../assets/scss/productCard.scss'
 
 export const ProductCard = ({id, title, image})=>{
 
