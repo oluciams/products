@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signupApi } from '../utils/api';
+import axios from '../utils/api';
 import '../assets/scss/signup.scss';
 
-export const Signup = ()=>{
+export const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,7 +39,7 @@ export const Signup = ()=>{
     if(name && email && password && confirmationPassword) {
       const signupForm = {name, email, password, confirmationPassword}
       try {
-        await signupApi.post('/signup', signupForm)              
+        await axios.post('/signup', signupForm)              
         resetForm();
         navigate('/login')     
       } catch (error) {

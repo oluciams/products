@@ -1,11 +1,15 @@
-const getProducts = ()=>{
- console.log('llamado a la api de productos')
+import axios from 'axios';
+
+function getProducts () {  
+  return axios.get('https://fakestoreapi.com/products');
 }
 
 const products = {
   getProducts
 }
 
-export default products
+export default products;
+
+
 
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../assets/scss/navbar.scss';
 import { AuthContext } from '../context/AuthContextProvider';
 
-export const Navbar =()=>{
+export const Navbar = () => {
 
   const {handleMenu, active, token, logout} = useContext(AuthContext);
 
@@ -21,7 +21,7 @@ export const Navbar =()=>{
           {token ? 
           <>    
             <Link className='navbar__link' to='/home'>Home</Link>
-            <Link className='navbar__link' to="/about">About</Link>
+            <Link className='navbar__link' to='/about'>About</Link>
             <Link className='navbar__link navbar__button' to='/login' onClick={()=> logout()}>Logout</Link>
           </> 
           :

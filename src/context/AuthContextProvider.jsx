@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider = ({children})=>{
+export const AuthContextProvider = ({ children }) => {
 
   const tokenStorage = localStorage.getItem('token') 
 
