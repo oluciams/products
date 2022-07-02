@@ -7,6 +7,7 @@ import { Login } from './components/Login';
 import { Layout } from './components/Layout';
 import { Signup } from './components/Signup';
 import { AuthContextProvider } from './context/AuthContextProvider';
+import { NotFound } from './pages/NotFound';
 
 function App() {
 
@@ -14,14 +15,15 @@ function App() {
 		<>
 		<AuthContextProvider>
 			<Routes>
-				<Route index element={<Login/>}/>	
-				<Route path='signup' element={<Signup/>}/>
-				<Route path='login' element={<Login/>}/>			
+				<Route index element={<Login />}/>	
+				<Route path='signup' element={<Signup />}/>
+				<Route path='login' element={<Login />}/>			
 				<Route element={<Layout redirectPath ='/login'/>}>
-					<Route path='home' element={<Home/>}/>
-					<Route path='about' element={<About/>}/>
-					<Route path='detail' element={<Detail/>}/>	
+					<Route path='home' element={<Home />}/>
+					<Route path='about' element={<About />}/>
+					<Route path='detail' element={<Detail />}/>	
 				</Route>
+				<Route path='*' element={<NotFound />}/>
 			</Routes>
 		</AuthContextProvider>
 		</>

@@ -1,24 +1,37 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../assets/scss/detail.scss';
+import axios from 'axios';
+//  import { getProduct } from '../services/products'
 
 export const Detail = () => {
 	const [detail, setDetail] = useState(false);
 
 	const location = useLocation();
-	const data = location.state?.id;
+	// const data = location.state?.id;
+	const id = location.state?.id;
 
 	async function fetchDetail() {
 		try {
 			const response = await axios.get(
-				`https://fakestoreapi.com/products/${data}`
+				`https://fakestoreapi.com/products/${id}`
 			);
 			setDetail(response.data);
 		} catch (error) {
 			console.error(error);
 		}
 	}
+
+	// async function fetchDetail() {
+	// 	try {	
+	// 		const response = await getProduct();
+	// 		console.log(response)
+	// 		setDetail(response.data);
+	// 		console.log(id)
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// }	
 
 	useEffect(() => {
 		fetchDetail();

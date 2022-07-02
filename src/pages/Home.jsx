@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../components/ProductCard';
 import '../assets/scss/home.scss';
-import getProducts  from '../services/products'
-
+import {getProducts}  from '../services/products';
 
 export const Home = () => {
 	const [products, setProducts] = useState(false);
@@ -15,6 +14,16 @@ export const Home = () => {
 			console.error(error);
 		}
 	}
+
+	// function fetchData() {
+	// 	axios.get('https://fakestoreapi.com/products')
+	// 		.then(function(response){
+	// 			setProducts(response.data)
+	// 		})
+	// 		.catch(function (error) {
+	// 			console.error(error)
+	// 		})
+	// }
 
 	useEffect(() => {
 		fetchData();
