@@ -7,11 +7,11 @@ import '../assets/scss/login.scss';
 import { AuthContext } from '../context/AuthContextProvider';
 
 export const Login = () => {
+	
 	const { setToken } = useContext(AuthContext);
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
 	const navigate = useNavigate();
 
 	const handleEmail = e => {

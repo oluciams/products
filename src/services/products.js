@@ -1,9 +1,5 @@
 import axios from 'axios';
 
 export const getProducts = () => {  
-  return axios.get('https://fakestoreapi.com/products');
+  return axios.get(process.env.REACT_APP_API_URL_EXTERNAL); 
 };
-
-// export const getProduct = () => {  
-//   return axios.get(`https://fakestoreapi.com/products/1`);
-// };

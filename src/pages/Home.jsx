@@ -15,16 +15,6 @@ export const Home = () => {
 		}
 	}
 
-	// function fetchData() {
-	// 	axios.get('https://fakestoreapi.com/products')
-	// 		.then(function(response){
-	// 			setProducts(response.data)
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.error(error)
-	// 		})
-	// }
-
 	useEffect(() => {
 		fetchData();
 	}, []);
