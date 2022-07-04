@@ -9,11 +9,11 @@ export const Detail = () => {
 	const location = useLocation();	
 	const id = location.state?.id;
 
+	// services?
+
 	async function fetchDetail() {
 		try {
-			const response = await axios.get(
-				`https://fakestoreapi.com/products/${id}`
-			);
+			const response = await axios.get(`${process.env.REACT_APP_API_URL_EXTERNAL}/${id}`); 
 			setDetail(response.data);
 		} catch (error) {
 			console.error(error);
