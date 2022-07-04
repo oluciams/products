@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../components/ProductCard';
 import '../assets/scss/home.scss';
 import { getProducts } from '../services/products';
+import { Alert } from '../components/Alert';
 
 export const Home = () => {
 	const [products, setProducts] = useState(false);
@@ -11,8 +12,7 @@ export const Home = () => {
 		try {
 			const response = await getProducts();	
 			if (response.status === 200){
-				setProducts(response.data);
-			}
+				setProducts(response.data);			}
 		} catch (error) {
 			setHasError(error.message);	
 		}
@@ -22,7 +22,7 @@ export const Home = () => {
 		fetchData();
 	}, []);
 
-	if (hasError) return <p className='home_alert'>{hasError}</p>
+	if (hasError) return <Alert hasError={hasError}/>
 	if (!products) return <h4>Loading . . .</h4>;
 
 	return (

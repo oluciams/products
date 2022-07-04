@@ -2,21 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../assets/scss/detail.scss';
 import axios from 'axios';
+import { Alert } from './Alert';
 
 export const Detail = () => {
 	const [detail, setDetail] = useState(false);
+	const [hasError, setHasError] = useState(null);
 
 	const location = useLocation();	
-	const id = location.state?.id;
+	const id = location.state?.id;	
 
 	// services?
 
 	async function fetchDetail() {
 		try {
-			const response = await axios.get(`${process.env.REACT_APP_API_URL_EXTERNAL}/${id}`); 
-			setDetail(response.data);
+			const response = await axios.get(`${process.env.REACT_APP_API_URL_EXTERNAL}/${id}`);			
+			if (response.status === 200){
+				setDetail(response.data);
+			} 
+			if(response.data === null) {
+				setHasError('Not Found id')
+			}
 		} catch (error) {
-			console.error(error);
+			setHasError(error.message);
 		}
 	}	
 
@@ -24,6 +31,7 @@ export const Detail = () => {
 		fetchDetail();
 	}, []);
 
+	if (hasError) return <Alert hasError={hasError}/> 
 	if (!detail) return <h3>Loading ...</h3>;
 
 	return (
