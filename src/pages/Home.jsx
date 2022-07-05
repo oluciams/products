@@ -12,7 +12,8 @@ export const Home = () => {
 		try {
 			const response = await getProducts();	
 			if (response.status === 200){
-				setProducts(response.data);			}
+				setProducts(response.data);
+			}
 		} catch (error) {
 			setHasError(error.message);	
 		}

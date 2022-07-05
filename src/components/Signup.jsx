@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../utils/api';
 import '../assets/scss/signup.scss';
+import { Alert } from './Alert';
 
 export const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmationPassword, setConfirmationPassword] = useState('');
+  const [hasError, setHasError] = useState(null);
 
   const navigate = useNavigate();
  
@@ -39,11 +41,20 @@ export const Signup = () => {
     if(name && email && password && confirmationPassword) {
       const signupForm = {name, email, password, confirmationPassword}
       try {
-        await axios.post('/signup', signupForm)              
-        resetForm();
-        navigate('/login')     
-      } catch (error) {
-        console.error('error')        
+        const response = await axios.post('/signup', signupForm)
+        if(response.status === 201){
+          console.log(response)             
+          resetForm();
+          navigate('/login')
+        }  
+      } catch (error) { 
+        const {response: { data }} = error
+        if (data.code === 11000){
+          setHasError('Duplicate Mail');
+        } else {  
+          const err = data.error.errors[0]  
+          setHasError(err);
+        }
       } 
     }
   }
@@ -52,6 +63,7 @@ export const Signup = () => {
      
     <section className='register'> 
       <h2 className='register__title'>Sign Up</h2>
+      { hasError ? <Alert hasError={hasError} /> : null }
       <form onSubmit={handleOnSubmit} className='resgister__form'>
         <div>        
           <input 

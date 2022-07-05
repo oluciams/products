@@ -5,6 +5,7 @@ import axios  from '../utils/api';
 import PropTypes from 'prop-types';
 import '../assets/scss/login.scss';
 import { AuthContext } from '../context/AuthContextProvider';
+import { Alert } from './Alert';
 
 export const Login = () => {
 	
@@ -12,6 +13,7 @@ export const Login = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [hasError, setHasError] = useState(null);
 	const navigate = useNavigate();
 
 	const handleEmail = e => {
@@ -32,13 +34,17 @@ export const Login = () => {
 		if (email && password) {
 			const loginForm = { email, password };
 			try {
-				const { data } = await axios.post('/login', loginForm);
-				setToken(data.token);
-				localStorage.setItem('token', data.token);
-				resetForm();
-				navigate('/home');
+				// const response = await axios.post('/login', loginForm);
+				const { data, status } = await axios.post('/login', loginForm);	
+				if(status === 200){	
+					setToken(data.token);
+					localStorage.setItem('token', data.token);
+					resetForm();
+					navigate('/home');
+				}
 			} catch (error) {
-				console.error('error');
+				const err = error.response.data.message	
+				setHasError(err);	
 			}
 		}
 	};
@@ -46,6 +52,7 @@ export const Login = () => {
 	return (
 		<section className='login'>
 			<h2 className='login__title'>Log In</h2>
+			{ hasError ? <Alert hasError={hasError} /> : null }
 			<form onSubmit={handleSubmit} className='login__form'>
 				<div>
 					<input
