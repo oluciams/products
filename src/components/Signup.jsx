@@ -42,8 +42,7 @@ export const Signup = () => {
       const signupForm = {name, email, password, confirmationPassword}
       try {
         const response = await axios.post('/signup', signupForm)
-        if(response.status === 201){
-          console.log(response)             
+        if(response.status === 201){               
           resetForm();
           navigate('/login')
         }  
